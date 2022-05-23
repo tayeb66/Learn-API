@@ -22,6 +22,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
 
     if(responseData.statusCode == 200){
       for(Map i in data){
+        /// PhotoModel is modelClass
+        /// Which hit the api and get data
         PhotoModel photoModel = PhotoModel(title: i['title'], url: i['url'],id: i['id']);
         photoList.add(photoModel);
       }
