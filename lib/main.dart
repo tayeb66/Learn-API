@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_ap1/example_thrid.dart';
 import 'package:learn_ap1/example_two.dart';
 import 'package:learn_ap1/home_page.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ExampleTwo(),
+      home: ExampleThird(),
     );
   }
 }
