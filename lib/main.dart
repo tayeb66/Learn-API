@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_ap1/Register/login_page.dart';
+import 'package:learn_ap1/Register/signUp_page.dart';
+import 'package:learn_ap1/example_four.dart';
 import 'package:learn_ap1/example_thrid.dart';
 import 'package:learn_ap1/example_two.dart';
 import 'package:learn_ap1/home_page.dart';
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ExampleThird(),
+      home: SignUpPage(),
     );
   }
 }
