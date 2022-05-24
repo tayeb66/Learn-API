@@ -14,25 +14,25 @@ class _SignUpPageState extends State<SignUpPage> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
-  // /// This method using post API & hit server
-  // /// after post successfully then response data
-  // Future<void> login(email, password) async {
-  //
-  //   try{
-  //     ///Send an HTTP POST to server through post()
-  //     Response response = await post(Uri.parse('https://reqres.in/api/register'),
-  //         body: {'email': email, 'password': password});
-  //
-  //     /// response from server and check id
-  //     if(response.statusCode == 200){
-  //       print('SignUp Successful');
-  //     }else{
-  //       print('SignUp UnSuccessful');
-  //     }
-  //   }catch(e){
-  //     print(e.toString());
-  //   }
-  // }
+  /// This method using post API & hit server
+  /// after post successfully then response data
+  Future<void> login(email, password) async {
+
+    try{
+      ///Send an HTTP POST to server through post()
+      Response response = await post(Uri.parse('https://reqres.in/api/register'),
+          body: {'email': email, 'password': password});
+
+      /// response from server and check id
+      if(response.statusCode == 200){
+        print('SignUp Successful');
+      }else{
+        print('SignUp UnSuccessful');
+      }
+    }catch(e){
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +82,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 style: TextButton.styleFrom(
                     minimumSize: Size(200, 50), shape: StadiumBorder()),
                 onPressed: () {
-                  // login(emailController.text.toString(),
-                  //     passwordController.text.toString());
+                  login(emailController.text.toString(),
+                      passwordController.text.toString());
                 },
                 child: Text(
                   'SignUp',
