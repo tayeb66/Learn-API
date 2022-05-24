@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:learn_ap1/Register/signUp_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,9 +12,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+
+  /// Sending http request using This method
+  /// using post() API & hit server
+  /// after post() successfully then response data from server
+  Future<void> signUp(email, password) async {
+    ///Send an HTTP POST to server through post()
+    Response response = await post(Uri.parse('https://reqres.in/api/register'),
+        body: {'email': email, 'password': password});
+
+    /// response from server and check id
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body.toString());
+      print(data);
+      print('Login Successful');
+    } else {
+      print('Login UnSuccessful');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextButton.styleFrom(
                     minimumSize: Size(200, 50), shape: StadiumBorder()),
                 onPressed: () {
-
+                  signUp(emailController.text.toString(),
+                      passwordController.text.toString());
                 },
                 child: Text(
                   'Login',
@@ -76,10 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text('Create a account ? '),
-                  TextButton(onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignUpPage()));
-                  }, child: Text('SignUp'))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()));
+                      },
+                      child: Text('SignUp'))
                 ],
               ),
             ],

@@ -16,8 +16,9 @@ class _SignUpPageState extends State<SignUpPage> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
-  /// This method using post API & hit server
-  /// after post successfully then response data
+  /// Sending http request using This method
+  /// using post() API & hit server
+  /// after post() successfully then response data from server
   Future<void> login(email, password) async {
 
     try{
