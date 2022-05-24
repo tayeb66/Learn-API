@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:learn_ap1/Register/login_page.dart';
 import 'package:http/http.dart';
@@ -25,6 +27,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
       /// response from server and check id
       if(response.statusCode == 200){
+        var data = jsonDecode(response.body.toString());
+        print(data);
         print('SignUp Successful');
       }else{
         print('SignUp UnSuccessful');
